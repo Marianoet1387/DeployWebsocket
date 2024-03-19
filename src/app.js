@@ -1,6 +1,6 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
-const {Server} = require("socket.io") //importamos la clase server desde la libreria io
+const {Server} = require("socket.io") 
 const viewsRouter = require('./routes/views.router')
 
 const app = express()
@@ -30,10 +30,10 @@ const io = new Server(httpServer)
 const messageHistorY = []
 // es un evento que permite escuchar las peticiones del cliente:
 
-io.on("connection", (clientSocket) => { // PRIMERO DEBEMOS GENERAR EL EVENTO ON.
+io.on("connection", (clientSocket) => { 
     console.log(`cliente conectado, ID: ${clientSocket.id}`)
 
-    //envarile todos los msj hasta ese momento 
+    //Se envian todos los mensajes hasta ese momento 
     for (const data of messageHistorY){
         clientSocket.emit("message", data)
     }
@@ -44,8 +44,7 @@ io.on("connection", (clientSocket) => { // PRIMERO DEBEMOS GENERAR EL EVENTO ON.
     })
     
     clientSocket.on("user-connected",(username) =>{
-        // notificar a los otros usuarios que se conecto un usuario 
+        // Notificar a los otros usuarios que se conecto un usuario 
         clientSocket.broadcast.emit("user-joined-chat",username)
     })
 }) 
- // 1:08

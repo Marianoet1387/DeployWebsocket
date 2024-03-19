@@ -22,24 +22,20 @@ swal.fire({
 chatBox.addEventListener("keyup", event =>{
     if(event.key === "Enter"){
         const text =chatBox.value
-
-        if(text.trim().length > 0) { // el msj no es vacio
+        if(text.trim().length > 0) { 
             socket.emit("message", {username,text})
-            chatBox.value = "" // limpia el imput para dejar el chat vacio
+            chatBox.value = "" 
         }
-
     }
 } )
 
 // escuchar los msj desde el servidor y mostrarlos
-
 socket.on("message", (data)=>{
     const { username, text} = data
     messageLogs.innerHTML += `${username} dice : ${text} </br>`
 })
 
 socket.on("user-joined-chat",(username) => {
-
     swal.fire({
         text:`Nuevo usuario conectado: ${username}`,
         toast: true,
