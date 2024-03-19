@@ -1,7 +1,7 @@
 # Demo de Glitch de chat
 
-Desarrollar una aplicación chat con websockets
+Desarrollo de una aplicación de chat con websockets
 
-Utilizo Sweetalert como sistema de autenticación intermedio.
+Utilizacion de Sweetalert como sistema de autenticación intermedio.
 
 Deploy de la aplicación utilizando Glitch.com
